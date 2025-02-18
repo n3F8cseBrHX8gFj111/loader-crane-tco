@@ -53,6 +53,7 @@ III. Additional Tips:
 Use a Discount Rate: If you're comparing different options with different lifespans, use a discount rate to bring future costs to their present value. This allows for a more accurate comparison.
 
 IV. Building the Model:
+
 Step 1: Define Inputs
 Create an Excel spreadsheet or a Python model with input variables like:
     Purchase price of truck & crane
