@@ -55,14 +55,15 @@ Use a Discount Rate: If you're comparing different options with different lifesp
 IV. Building the Model:
 Step 1: Define Inputs
 Create an Excel spreadsheet or a Python model with input variables like:
-Purchase price of truck & crane
-Fuel consumption (L/km or L/hr)
-Annual mileage or operational hours
-Maintenance cost per year
-Operator wages
-Insurance & registration fees
-Loan/lease terms (interest rate, monthly payment, duration)
-Expected resale value
+    Purchase price of truck & crane
+    Fuel consumption (L/km or L/hr)
+    Annual mileage or operational hours
+    Maintenance cost per year
+    Operator wages
+    Insurance & registration fees
+    Loan/lease terms (interest rate, monthly payment, duration)
+    Expected resale value
+    
 Step 2: Calculate Annual Costs
 Separate fixed and variable costs.
 Sum fuel, maintenance, and labor for annual operating costs.
