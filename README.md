@@ -1,6 +1,6 @@
 Building a Total Cost of Ownership (TCO) model for a loader crane mounted on a truck requires considering a wide range of costs over the crane's lifespan.
-
 Here's a breakdown of the costs to include and how to structure the model:
+
 I. Cost Categories:
   A. Acquisition Costs:
 1. Crane Purchase Price: The initial cost of the crane itself, including any base attachments.
