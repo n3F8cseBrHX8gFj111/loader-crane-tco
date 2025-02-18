@@ -1,6 +1,8 @@
-Building a Total Cost of Ownership (TCO) model for a loader crane mounted on a truck requires considering a wide range of costs over the crane's lifespan. Here's a breakdown of the costs to include and how to structure the model:
+Building a Total Cost of Ownership (TCO) model for a loader crane mounted on a truck requires considering a wide range of costs over the crane's lifespan.
+
+Here's a breakdown of the costs to include and how to structure the model:
 I. Cost Categories:
-A. Acquisition Costs:
+  A. Acquisition Costs:
 1. Crane Purchase Price: The initial cost of the crane itself, including any base attachments.
 2. Truck Modification/Reinforcement: Costs to prepare the truck chassis for crane mounting (e.g., frame reinforcement, outrigger installation, PTO installation).
 3. Mounting and Installation: Labor and materials for mounting the crane on the truck.
@@ -8,14 +10,16 @@ A. Acquisition Costs:
 5. Delivery and Shipping: Costs to transport the crane and truck.
 6. Taxes and Fees: Sales tax, registration fees, etc.
 7. Customization costs – Any additional features, sensors, or special equipment.
-B. Operating Costs:
+
+  B. Operating Costs:
 1. Fuel: Fuel consumption for both the truck and the crane's hydraulic system (if applicable). Consider idle time.
 2. Hydraulic Oil: Cost of hydraulic fluid and periodic changes.
 3. Maintenance (Preventive): Scheduled maintenance like inspections, lubrication, filter changes, hose replacements, etc. Factor in frequency and labor costs.
 4. Repairs (Unscheduled): Budget for unexpected repairs due to breakdowns, wear and tear, or accidental damage. This is harder to predict, but historical data or industry averages can help.
 5. Operator Wages: Cost of the crane operator's salary and benefits.
 6. Insurance: Insurance premiums for the truck and crane.
-C. Ownership Costs:
+
+  C. Ownership Costs:
 1. Depreciation: The decrease in value of the crane and truck over time. Use a suitable depreciation method (e.g., straight-line, declining balance).
 2. Interest on Loan (if applicable): Interest paid on financing for the crane and/or truck.
 3. Taxes (Property/Usage): Annual taxes related to owning and operating the equipment.
@@ -24,6 +28,7 @@ D. Disposal Costs:
 1. Resale Value: Estimated value of the crane and truck at the end of their useful life. This can be a positive value, offsetting some costs.
 2. Dismounting and Removal: Costs to remove the crane from the truck and dispose of both.
 3. Environmental Disposal Fees: Costs associated with disposing of fluids, tires, etc., in an environmentally responsible manner.
+
 II. Model Structure:
 1. Spreadsheet Software: Microsoft Excel or Google Sheets are ideal for building this type of model.
 2. Input Variables: Create cells for all the cost categories listed above. These will be the input variables. Be as detailed as possible (e.g., instead of just "Maintenance," have separate lines for "Oil Changes," "Filter Replacements," etc.).
@@ -34,16 +39,18 @@ Depreciation = (Initial Cost - Salvage Value) / Useful Life
 5. Total Cost Calculation: Sum all the costs for each year and then calculate the cumulative total cost over the entire time horizon.
 6. Sensitivity Analysis: This is crucial. Identify the variables that have the biggest impact on the TCO (e.g., fuel price, utilization rate, repair costs). Use scenarios or data tables to see how changes in these variables affect the overall cost.
 7. Output: The model should output the following:
-Annual costs for each category.
-Cumulative total cost of ownership over the time horizon.
-Key metrics like cost per hour, cost per lift, etc. (if applicable).
-Sensitivity analysis results.
+- Annual costs for each category.
+- Cumulative total cost of ownership over the time horizon.
+- Key metrics like cost per hour, cost per lift, etc. (if applicable).
+- Sensitivity analysis results.
+
 III. Additional Tips:
-Data Collection: Gather accurate data for your input variables. Use historical data from your own operations, manufacturer specifications, industry benchmarks, and expert opinions.
-Assumptions: Clearly state all assumptions made in your model.
-Regular Updates: Update your model periodically with actual cost data to refine its accuracy.
-Consider External Factors: Think about factors like inflation, technological advancements, and changes in regulations that might affect costs over time.
+- Data Collection: Gather accurate data for your input variables. Use historical data from your own operations, manufacturer specifications, industry benchmarks, and expert opinions.
+- Assumptions: Clearly state all assumptions made in your model.
+- Regular Updates: Update your model periodically with actual cost data to refine its accuracy.
+- Consider External Factors: Think about factors like inflation, technological advancements, and changes in regulations that might affect costs over time.
 Use a Discount Rate: If you're comparing different options with different lifespans, use a discount rate to bring future costs to their present value. This allows for a more accurate comparison.
+
 IV. Building the Model:
 Step 1: Define Inputs
 Create an Excel spreadsheet or a Python model with input variables like:
