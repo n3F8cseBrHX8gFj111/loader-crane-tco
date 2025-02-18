@@ -2,7 +2,8 @@ Building a Total Cost of Ownership (TCO) model for a loader crane mounted on a t
 Here's a breakdown of the costs to include and how to structure the model:
 
 I. Cost Categories:
-  A. Acquisition Costs:
+
+A. Acquisition Costs:
 1. Crane Purchase Price: The initial cost of the crane itself, including any base attachments.
 2. Truck Modification/Reinforcement: Costs to prepare the truck chassis for crane mounting (e.g., frame reinforcement, outrigger installation, PTO installation).
 3. Mounting and Installation: Labor and materials for mounting the crane on the truck.
