@@ -61,7 +61,7 @@ crane_cost = st.number_input("Crane Purchase Price ($)", min_value=0.0, value=50
 installation_cost = st.number_input("Installation Cost ($)", min_value=0.0, value=10000.0)
 fuel_cost_per_l = st.number_input("Fuel Cost per Liter ($)", min_value=0.0, value=1.5)
 fuel_consumption = st.number_input("Fuel Consumption (L/km)", min_value=0.0, value=0.3)
-annual_km = st.number_input("Annual Distance Driven (km)", min_value=0.0, value=30000.0)
+annual_km = annual_km = st.slider("Annual Distance Driven (km)", min_value=1000, max_value=100000, value=30000, step=500)
 maintenance_cost = st.number_input("Annual Maintenance Cost ($)", min_value=0.0, value=5000.0)
 operator_salary = st.number_input("Operator Annual Salary ($)", min_value=0.0, value=40000.0)
 insurance_cost = st.number_input("Annual Insurance Cost ($)", min_value=0.0, value=5000.0)
