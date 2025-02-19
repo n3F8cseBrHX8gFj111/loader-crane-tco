@@ -84,6 +84,7 @@ if st.button("Calculate TCO"):
     st.write(f"**Annual Depreciation:** ${tco_model.calculate_depreciation():,.2f}")
     st.write(f"**Annual Loan Payment:** ${tco_model.calculate_loan_payment():,.2f}")
     st.write(f"**Break-even Point (Years):** {tco_model.calculate_break_even_years()}")
+    
 import pandas as pd
 import matplotlib.pyplot as plt
 
