@@ -84,3 +84,32 @@ if st.button("Calculate TCO"):
     st.write(f"**Annual Depreciation:** ${tco_model.calculate_depreciation():,.2f}")
     st.write(f"**Annual Loan Payment:** ${tco_model.calculate_loan_payment():,.2f}")
     st.write(f"**Break-even Point (Years):** {tco_model.calculate_break_even_years()}")
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data for the chart
+years_range = list(range(1, years + 1))
+cumulative_costs = [tco_model.calculate_annual_costs() * year for year in years_range]
+cumulative_revenue = [revenue_per_year * year for year in years_range]
+
+# Create a DataFrame for Streamlit
+df = pd.DataFrame({
+    "Years": years_range,
+    "Cumulative Cost ($)": cumulative_costs,
+    "Cumulative Revenue ($)": cumulative_revenue
+})
+
+# Plot in Streamlit
+st.subheader("📊 Cumulative Cost vs Revenue Over Time")
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.plot(df["Years"], df["Cumulative Cost ($)"], label="Cumulative Cost ($)", linestyle="--", marker="o", color="red")
+ax.plot(df["Years"], df["Cumulative Revenue ($)"], label="Cumulative Revenue ($)", linestyle="-", marker="s", color="green")
+
+ax.set_xlabel("Years")
+ax.set_ylabel("Amount ($)")
+ax.set_title("Break-even Analysis")
+ax.legend()
+ax.grid(True)
+
+st.pyplot(fig)
