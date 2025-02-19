@@ -72,11 +72,13 @@ resale_value = st.number_input("Estimated Resale Value ($)", min_value=0.0, valu
 years = st.number_input("Ownership Period (Years)", min_value=1, value=10)
 revenue_per_year = st.number_input("Expected Annual Revenue ($)", min_value=0.0, value=120000.0)
 
-if st.button("Calculate TCO"):
+if st.button("Calculate TCO"):  
+    # Create the TCO Model
     tco_model = LoaderCraneTCO(truck_cost, crane_cost, installation_cost, fuel_cost_per_l, fuel_consumption,
                                annual_km, maintenance_cost, operator_salary, insurance_cost, tax_cost,
                                loan_interest_rate, loan_term, resale_value, years, revenue_per_year)
-    
+
+    # Display Results
     st.subheader("Results")
     st.write(f"**Total Cost of Ownership for {years} years:** ${tco_model.calculate_tco():,.2f}")
     st.write(f"**Annual Cost:** ${tco_model.calculate_annual_costs():,.2f}")
@@ -85,33 +87,33 @@ if st.button("Calculate TCO"):
     st.write(f"**Annual Loan Payment:** ${tco_model.calculate_loan_payment():,.2f}")
     st.write(f"**Break-even Point (Years):** {tco_model.calculate_break_even_years()}")
 
-# 📊 Add Chart Below
-import pandas as pd
-import matplotlib.pyplot as plt
+    # 📊 Add Chart Below (Only If Button is Clicked)
+    import pandas as pd
+    import matplotlib.pyplot as plt
 
-# Data for the chart
-years_range = list(range(1, years + 1))
-cumulative_costs = [tco_model.calculate_annual_costs() * year for year in years_range]
-cumulative_revenue = [revenue_per_year * year for year in years_range]
+    # Data for the chart
+    years_range = list(range(1, years + 1))
+    cumulative_costs = [tco_model.calculate_annual_costs() * year for year in years_range]
+    cumulative_revenue = [revenue_per_year * year for year in years_range]
 
-# Create a DataFrame for Streamlit
-df = pd.DataFrame({
-    "Years": years_range,
-    "Cumulative Cost ($)": cumulative_costs,
-    "Cumulative Revenue ($)": cumulative_revenue
-})
+    # Create a DataFrame for Streamlit
+    df = pd.DataFrame({
+        "Years": years_range,
+        "Cumulative Cost ($)": cumulative_costs,
+        "Cumulative Revenue ($)": cumulative_revenue
+    })
 
-# Plot in Streamlit
-st.subheader("📊 Cumulative Cost vs Revenue Over Time")
+    # Plot in Streamlit
+    st.subheader("📊 Cumulative Cost vs Revenue Over Time")
 
-fig, ax = plt.subplots(figsize=(8, 5))
-ax.plot(df["Years"], df["Cumulative Cost ($)"], label="Cumulative Cost ($)", linestyle="--", marker="o", color="red")
-ax.plot(df["Years"], df["Cumulative Revenue ($)"], label="Cumulative Revenue ($)", linestyle="-", marker="s", color="green")
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.plot(df["Years"], df["Cumulative Cost ($)"], label="Cumulative Cost ($)", linestyle="--", marker="o", color="red")
+    ax.plot(df["Years"], df["Cumulative Revenue ($)"], label="Cumulative Revenue ($)", linestyle="-", marker="s", color="green")
 
-ax.set_xlabel("Years")
-ax.set_ylabel("Amount ($)")
-ax.set_title("Break-even Analysis")
-ax.legend()
-ax.grid(True)
+    ax.set_xlabel("Years")
+    ax.set_ylabel("Amount ($)")
+    ax.set_title("Break-even Analysis")
+    ax.legend()
+    ax.grid(True)
 
-st.pyplot(fig)  # Display the chart in Streamlit
+    st.pyplot(fig)  # Display the chart in Streamlit
