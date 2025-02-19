@@ -1,3 +1,20 @@
+st.sidebar.title("📖 ReadMe - Loader Crane TCO App")
+st.sidebar.info("""
+### How to Use This App:
+1️⃣ Enter the truck and crane costs, fuel price, maintenance, and other inputs.  
+2️⃣ Click **"Calculate TCO"** to see the total cost of ownership.  
+3️⃣ The app will show **Annual Costs, Break-even Point, and a Chart**.  
+4️⃣ Adjust inputs to compare different scenarios.  
+
+### Key Features:
+✅ Calculates **Total Cost of Ownership (TCO)**  
+✅ Estimates **Break-even point**  
+✅ Visualizes **Cost vs Revenue** over time  
+
+👨‍💻 **Developed using Python & Streamlit**  
+📧 Contact: *your_email@example.com*  
+""")
+
 import streamlit as st
 
 class LoaderCraneTCO:
