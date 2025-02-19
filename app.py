@@ -39,4 +39,48 @@ class LoaderCraneTCO:
         fuel_cost = self.calculate_annual_fuel_cost()
         depreciation = self.calculate_depreciation()
         loan_payment = self.calculate_loan_payment()
-        total_annual_cost = (fuel_cost + self.maint
+        total_annual_cost = (fuel_cost + self.maintenance_cost + self.operator_salary +
+                             self.insurance_cost + self.tax_cost + depreciation + loan_payment)
+        return total_annual_cost
+
+    def calculate_tco(self):
+        return self.calculate_annual_costs() * self.years
+
+    def calculate_break_even_years(self):
+        annual_profit = self.revenue_per_year - self.calculate_annual_costs()
+        if annual_profit <= 0:
+            return "Never (operating at a loss)"
+        return round(self.calculate_tco() / annual_profit, 2)
+
+# Streamlit UI
+st.title("Loader Crane TCO Calculator")
+st.write("Enter details below to calculate Total Cost of Ownership and Break-even Analysis")
+
+truck_cost = st.number_input("Truck Purchase Price ($)", min_value=0.0, value=100000.0)
+crane_cost = st.number_input("Crane Purchase Price ($)", min_value=0.0, value=50000.0)
+installation_cost = st.number_input("Installation Cost ($)", min_value=0.0, value=10000.0)
+fuel_cost_per_l = st.number_input("Fuel Cost per Liter ($)", min_value=0.0, value=1.5)
+fuel_consumption = st.number_input("Fuel Consumption (L/km)", min_value=0.0, value=0.3)
+annual_km = st.number_input("Annual Distance Driven (km)", min_value=0.0, value=30000.0)
+maintenance_cost = st.number_input("Annual Maintenance Cost ($)", min_value=0.0, value=5000.0)
+operator_salary = st.number_input("Operator Annual Salary ($)", min_value=0.0, value=40000.0)
+insurance_cost = st.number_input("Annual Insurance Cost ($)", min_value=0.0, value=5000.0)
+tax_cost = st.number_input("Annual Tax & Registration Cost ($)", min_value=0.0, value=2000.0)
+loan_interest_rate = st.number_input("Loan Interest Rate (%)", min_value=0.0, value=5.0)
+loan_term = st.number_input("Loan Term (Years)", min_value=1, value=5)
+resale_value = st.number_input("Estimated Resale Value ($)", min_value=0.0, value=30000.0)
+years = st.number_input("Ownership Period (Years)", min_value=1, value=10)
+revenue_per_year = st.number_input("Expected Annual Revenue ($)", min_value=0.0, value=120000.0)
+
+if st.button("Calculate TCO"):
+    tco_model = LoaderCraneTCO(truck_cost, crane_cost, installation_cost, fuel_cost_per_l, fuel_consumption,
+                               annual_km, maintenance_cost, operator_salary, insurance_cost, tax_cost,
+                               loan_interest_rate, loan_term, resale_value, years, revenue_per_year)
+    
+    st.subheader("Results")
+    st.write(f"**Total Cost of Ownership for {years} years:** ${tco_model.calculate_tco():,.2f}")
+    st.write(f"**Annual Cost:** ${tco_model.calculate_annual_costs():,.2f}")
+    st.write(f"**Annual Fuel Cost:** ${tco_model.calculate_annual_fuel_cost():,.2f}")
+    st.write(f"**Annual Depreciation:** ${tco_model.calculate_depreciation():,.2f}")
+    st.write(f"**Annual Loan Payment:** ${tco_model.calculate_loan_payment():,.2f}")
+    st.write(f"**Break-even Point (Years):** {tco_model.calculate_break_even_years()}")
