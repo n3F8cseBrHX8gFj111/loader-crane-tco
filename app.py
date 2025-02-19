@@ -1,3 +1,4 @@
+import streamlit as st
 st.sidebar.title("📖 ReadMe - Loader Crane TCO App")
 st.sidebar.info("""
 ### How to Use This App:
@@ -14,9 +15,6 @@ st.sidebar.info("""
 👨‍💻 **Developed using Python & Streamlit**  
 📧 Contact: *your_email@example.com*  
 """)
-
-import streamlit as st
-
 class LoaderCraneTCO:
     def __init__(self, truck_cost, crane_cost, installation_cost, fuel_cost_per_l, fuel_consumption,
                  annual_km, maintenance_cost, operator_salary, insurance_cost, tax_cost,
