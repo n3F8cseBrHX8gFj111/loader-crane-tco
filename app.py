@@ -82,7 +82,7 @@ tax_cost = st.number_input("Annual Tax & Registration Cost ($)", min_value=0.0, 
 loan_interest_rate = st.number_input("Loan Interest Rate (%)", min_value=0.0, value=5.0)
 loan_term = st.slider("Loan Term (Years)", min_value=1, max_value=35, value=5, step=1)
 resale_value = st.number_input("Estimated Resale Value ($)", min_value=0.0, value=30000.0)
-years = st.number_input("Ownership Period (Years)", min_value=1, value=10)
+years = st.slider("Ownership Period (Years)", min_value=1, max_value=25, value=10, step=1)
 revenue_per_year = st.number_input("Expected Annual Revenue ($)", min_value=0.0, value=120000.0)
 
 if st.button("Calculate TCO"):  
